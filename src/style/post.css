@@ -2,3 +2,7 @@
   width: 100%;
   object-fit: contain;
 }
+
+.post_text {
+  font-weight: normal;
+}
