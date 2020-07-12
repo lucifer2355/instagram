@@ -34,6 +34,7 @@ const App = () => {
 
   const [posts, setPosts] = useState([]);
   const [open, setOpen] = useState(false);
+  const [openSignIn, setOpenSignIn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -78,6 +79,18 @@ const App = () => {
       .catch((error) => alert(error.message));
   };
 
+  const signIn = (event) => {
+    event.preventDefault();
+
+    console.log("helo");
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .catch((error) => alert(error.message));
+
+    setOpenSignIn(false);
+  };
+
   return (
     <div className='app'>
       <Modal open={open} onClose={() => setOpen(false)}>
@@ -115,6 +128,35 @@ const App = () => {
         </div>
       </Modal>
 
+      <Modal open={openSignIn} onClose={() => setOpenSignIn(false)}>
+        <div style={modalStyle} className={classes.paper}>
+          <form className='app_signup'>
+            <center>
+              <img
+                className='app_header_logo'
+                src='https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png'
+                alt='logo'
+              />
+            </center>
+            <Input
+              placeholder='email'
+              type='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input
+              placeholder='password'
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button type='submit' onClick={signIn}>
+              Sign In
+            </Button>
+          </form>
+        </div>
+      </Modal>
+
       <div className='app_header'>
         <img
           className='app_header_logo'
@@ -123,7 +165,14 @@ const App = () => {
         />
       </div>
 
-      <Button onClick={() => setOpen(true)}>Sign Up</Button>
+      {user ? (
+        <Button onClick={() => auth.signOut()}>Logout</Button>
+      ) : (
+        <div className='app_loginContainer'>
+          <Button onClick={() => setOpenSignIn(true)}>Sign In</Button>
+          <Button onClick={() => setOpen(true)}>Sign Up</Button>
+        </div>
+      )}
 
       {posts.map(({ id, post }) => (
         <Post
