@@ -18,3 +18,8 @@
   width: 200px;
   height: 50px;
 } */
+
+.app_signup {
+  display: flex;
+  flex-direction: column;
+}
