@@ -7,17 +7,22 @@
   height: 100%;
 }
 
+.app_post {
+  padding: 20px;
+}
+
 .app_header {
   background-color: white;
   padding: 20px;
   border-bottom: 1px solid lightgray;
   object-fit: contain;
+  display: flex;
+  justify-content: space-between;
 }
 
-/* .app_header_logo {
-  width: 200px;
-  height: 50px;
-} */
+.app_header_logo {
+  object-fit: contain;
+}
 
 .app_signup {
   display: flex;
