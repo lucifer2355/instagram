@@ -24,5 +24,29 @@
 }
 
 .post_avatar {
-  margin-right: 10px;
+  margin-right: 20px;
+}
+
+.post_comments {
+  padding: 10px;
+}
+
+.post_commentBox {
+  display: flex;
+  margin-top: 10px;
+}
+
+.post_input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  border-top: 1px solid lightgray;
+}
+
+.post_button {
+  flex: 0;
+  border: none;
+  color: #6082a3;
+  background-color: transparent;
+  border-top: 1px solid lightgray;
 }

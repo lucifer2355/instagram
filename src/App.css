@@ -9,9 +9,18 @@
 
 .app_post {
   padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.app_postRight {
+  margin-left: 50px;
 }
 
 .app_header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   background-color: white;
   padding: 20px;
   border-bottom: 1px solid lightgray;
