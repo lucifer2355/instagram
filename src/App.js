@@ -37,7 +37,7 @@ const App = () => {
   const [posts, setPosts] = useState([]);
   const [open, setOpen] = useState(false);
   const [openSignIn, setOpenSignIn] = useState(false);
-  const [openPost, setOpenPost] = useState(true);
+  const [openPost, setOpenPost] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
