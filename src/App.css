@@ -31,6 +31,7 @@
 
 .app_header_logo {
   object-fit: contain;
+  width: 100px;
 }
 
 .app_signup {

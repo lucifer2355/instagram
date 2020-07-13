@@ -1,15 +1,19 @@
 .imageUpload {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: white;
-  border-top: 1px solid lightgray;
 }
 
 .imageupload_progress {
   width: 100%;
+  margin-bottom: 5px;
+}
+
+.imageupload_caption {
+  margin-bottom: 5px;
 }

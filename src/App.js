@@ -37,6 +37,7 @@ const App = () => {
   const [posts, setPosts] = useState([]);
   const [open, setOpen] = useState(false);
   const [openSignIn, setOpenSignIn] = useState(false);
+  const [openPost, setOpenPost] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -159,6 +160,16 @@ const App = () => {
         </div>
       </Modal>
 
+      <Modal open={openPost} onClose={() => setOpenPost(false)}>
+        <div style={modalStyle} className={classes.paper}>
+          {user?.displayName ? (
+            <ImageUpload username={user.displayName} />
+          ) : (
+            <h3>Sorry you need to login to upload</h3>
+          )}
+        </div>
+      </Modal>
+
       <div className='app_header'>
         <img
           className='app_header_logo'
@@ -167,7 +178,10 @@ const App = () => {
         />
 
         {user ? (
-          <Button onClick={() => auth.signOut()}>Logout</Button>
+          <div className='app_buttons'>
+            <Button onClick={() => setOpenPost(true)}>Post</Button>
+            <Button onClick={() => auth.signOut()}>Logout</Button>
+          </div>
         ) : (
           <div className='app_loginContainer'>
             <Button onClick={() => setOpenSignIn(true)}>Sign In</Button>
@@ -205,12 +219,6 @@ const App = () => {
           />
         </div>
       </div>
-
-      {user?.displayName ? (
-        <ImageUpload username={user.displayName} />
-      ) : (
-        <h3>Soory you need to login to upload</h3>
-      )}
     </div>
   );
 };

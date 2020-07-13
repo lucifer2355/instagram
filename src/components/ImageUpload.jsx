@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@material-ui/core";
 import firebase from "firebase";
 import { storage, db } from "../firebase";
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import "../style/imageUpload.css";
 
 function ImageUpload({ username }) {
@@ -54,9 +55,11 @@ function ImageUpload({ username }) {
   return (
     <div className='imageUpload'>
       <progress className='imageupload_progress' value={progress} max='100' />
-      <input
-        type='text'
-        placeholder='Enter a caption....'
+      <TextareaAutosize
+        className='imageupload_caption'
+        aria-label='minimum height'
+        rowsMin={5}
+        placeholder='Enter a caption...'
         value={caption}
         onChange={(e) => setCaption(e.target.value)}
       />
